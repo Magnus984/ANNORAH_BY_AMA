@@ -73,7 +73,7 @@ class Dress(Base):
     name = Column(String(45), nullable=False)
     description = Column(String(100), nullable=True)
     price = Column(Float(precision=2), nullable=False)
-
+    image_url = Column(String(255), nullable=False)
     owner_id = Column(Integer, ForeignKey("owner.id"))
     owner = relationship("Owner", back_populates="dresses")
     buyers = relationship(
