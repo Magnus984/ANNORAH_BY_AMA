@@ -8,11 +8,12 @@ engine = create_engine("mysql+mysqldb://root:windowsql@localhost:3306/annorah_by
 Session = sessionmaker(bind=engine)
 session = Session()
 
-email = "hildatetteh23@gmail.com"
+email = "hildatetteh29@gmail.com"
 user = User(
     username=email,
     email=email,
-    password_hash=generate_password_hash("hilda_password")
+    password_hash=generate_password_hash("hilda_password"),
+    role="Owner"
 )
 session.add(user)
 session.commit()
