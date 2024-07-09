@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANNORAH BY AMA</title>
     <link rel="stylesheet" href="../static/styles/login.css">
+    <link rel="stylesheet" href="../static/styles/messages.css">
 </head>
 <body>
     <div class="top">
         <h1 class="st">ANNORAH BY AMA</h1>
-        <img src="../static/images/home.png" alt="Home" width="24" height="24">
-        <button class="signup">SIGNUP</button>
+        <a href="{{ url_for('landing_page') }}">
+            <img src="../static/images/home.png" alt="Home" width="24" height="24">
+        </a>
+        <button onclick="window.location.href='signup'" class="signup">SIGNUP</button>
     </div>
     <hr>
     <h2 class="st">LOGIN</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
     <div class="container">
         <form method="POST" action="{{ url_for('login')}}">
             <div>

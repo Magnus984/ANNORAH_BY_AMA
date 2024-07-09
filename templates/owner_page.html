@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANNORAH BY AMA</title>
     <link rel="stylesheet" href="../static/styles/owner_page.css">
+    <link rel="stylesheet" href="../static/styles/messages.css">
+    <link rel="stylesheet" href="../static/styles/top.css">
 </head>
 <body>
     <div class="top">
         <h1 class="st">ANNORAH BY AMA</h1>
-        <img src="../static/images/home.png" alt="Home" width="24" height="24">
+        <a href="{{ url_for('landing_page') }}" class="home">
+            <img src="../static/images/home.png" alt="Home" class="img-size">
+        </a>
+        <div class="profile-div">
+            <img src="../static/images/profile-user.png" alt="Profile" class="img-size">
+            {% if name %}
+            {{ name }}
+            {% endif %}
+        </div>
     </div>
     <hr>
     <h2 class="st">ADD ITEM</h2>
@@ -19,6 +29,15 @@
     {% if success_message %}
     <div class="success">{{ success_message }}</div>
     {% endif %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
     <div class="container">
         <form method="POST" action="{{ url_for('owner_page')}}" enctype="multipart/form-data">
             <div>

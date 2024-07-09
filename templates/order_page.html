@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANNORAH BY AMA</title>
-    <link rel="stylesheet" href="../static/styles/buyer.css">
+    <link rel="stylesheet" href="../static/styles/order.css">
     <link rel="stylesheet" href="../static/styles/messages.css">
     <link rel="stylesheet" href="../static/styles/top.css">
 </head>
@@ -31,28 +31,25 @@
         </ul>
       {% endif %}
     {% endwith %}
-    <div class="container">
-        {% for dress in dresses %}
-        <a style="text-decoration: none; color: black;" href="{{ url_for('order_page', dress_id=dress.id) }}">
-            <div class="full_container">
-                <div class="img_container">
-                    <img src="{{ dress.image_url }}">
-                </div>
-            <p class="dress_description">{{ dress.description }}</p>
-            <p class="dress_price">{{ dress.price }}</p>
-            </div>
-        </a>
-        {% endfor %}
-        <div class="order-container">
-            <h2>My Orders</h2>
-            {% if orders %}
-            {% for order in orders %}
-            <div class="order-item">{{ order.name }}({{ order.price }})
-                <img id="order-image" src="{{ order.image_url }}">
-            </div>
-            {% endfor %}
-            {% endif %}
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+    {% if dress %}
+    <div class="main-container">
+        <div class="dress-container">
+            <img src="{{ dress.image_url }}" id="dress">
         </div>
+            <div class="order-container">
+            <div class="no-button">
+                <p>Name: {{ dress.name  }}</p>
+                <p>Price: {{ dress.price  }}</p>
+                <p>Description: {{ dress.description  }}</p>
+            </div>
+            <form method="POST">
+                <button>Order</button>
+            </form>
+        </div>
+    {% endif %}
     </div>
 </body>
 </html>
