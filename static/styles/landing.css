@@ -1,0 +1,100 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    margin-left: 1%
+}
+
+
+button {
+    padding: 8px;
+    background-color: #CF9214;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+    border-radius: 4px;
+        
+}
+
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    /*
+    background: url(../images/home.png);
+    background-repeat: no-repeat;
+    background-position: 85% center;
+    */
+}
+
+
+.signup {
+    margin-right: 10px;
+    margin-top: 19.938px;
+    margin-bottom: 19.938px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+}
+
+.login {
+    margin-top: 19.938px;
+    margin-bottom: 19.938px;
+    margin-left: 50%;
+    margin-right: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+.btn {
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
+
+hr {
+    border-width:  3px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap; /* Allows containers to wrap to the next line if they exceed the width */
+    gap: 20px; /* Adds space between each full_container */
+}
+.img_container {
+    margin: auto;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 180px;
+    height: 250px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden; 
+}
+
+.img_container img {
+    max-width: 100%; /* Ensure image does not exceed container width */
+    height: auto; /* Allow image to adjust height proportionally */
+    display: block; /* Ensures the image respects container dimensions */
+}
+
+.dress_description, .dress_price {
+    margin: 0;
+    padding: 5px 0;
+    text-align: center; /* Centers the text */
+}

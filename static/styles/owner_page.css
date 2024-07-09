@@ -21,9 +21,6 @@ body {
 
 }
 
-h1 {
-    margin-left: 1%
-}
 
 form {
     margin-top: 20px;
@@ -57,12 +54,6 @@ button {
 }
 
 
-.top {
-    display: flex;
-    justify-content: space-between;
-    
-}
-
 .add {
     margin-right: 25%;
     margin-left: 25%;
@@ -89,13 +80,9 @@ h2 {
     text-align: center;
 }
 
-div img{
-    margin-top: 27.938px;
-    margin-bottom: 27.938px;;
-    margin-left: 45%;
-    margin-right: 1%;
-}
 
+
+/*
 div.error {
     color: black;
     background-color: red;
@@ -121,3 +108,4 @@ div.success {
     font-weight: bold;
     text-align: center;
 }
+    */
