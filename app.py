@@ -155,7 +155,7 @@ def landing_page():
     dresses = session.query(Dress).all()
     for dress in dresses:
         print(dress.image_url)
-    return render_template('landing_page.html', dresses=dresses)
+    return render_template('index.html', dresses=dresses)
 
 
 @app.route('/order-page/<int:dress_id>',methods=['GET', 'POST'])
