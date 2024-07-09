@@ -1,12 +1,13 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey, Float, Table, create_engine
 from sqlalchemy.orm import relationship
+from flask_login import UserMixin
 
 engine =create_engine("mysql+mysqldb://root:windowsql@localhost:3306/annorah_by_ama")
 Base = declarative_base()
 
 
-class User(Base):
+class User(Base, UserMixin):
     """Represents a User table in the database"""
     __tablename__ = 'users'
 
