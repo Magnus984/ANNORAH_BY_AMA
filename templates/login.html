@@ -6,16 +6,18 @@
     <title>ANNORAH BY AMA</title>
     <link rel="stylesheet" href="../static/styles/login.css">
     <link rel="stylesheet" href="../static/styles/messages.css">
+    <link rel="stylesheet" href="static/styles/body.css">
+    <link rel="stylesheet" href="static/styles/footer.css">
 </head>
 <body>
+  <div class="wrapper">
     <div class="top">
-        <h1 class="st">ANNORAH BY AMA</h1>
-        <a href="{{ url_for('landing_page') }}">
-            <img src="../static/images/home.png" alt="Home" width="24" height="24">
-        </a>
-        <button onclick="window.location.href='signup'" class="signup">SIGNUP</button>
+      <h1 class="st">ANNORAH BY AMA</h1>
+      <a href="{{ url_for('landing_page') }}">
+          <img src="../static/images/home.png" alt="Home" width="24" height="24">
+      </a>
+      <button onclick="window.location.href='signup'" class="signup">SIGNUP</button>
     </div>
-    <hr>
     <h2 class="st">LOGIN</h2>
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
@@ -39,5 +41,13 @@
             <div class="btn"><button type="submit" class="login">LOGIN</button></div>
         </form>
     </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+        <!--<h2>About</h2>-->
+        <p>About: ANNORAH BY AMA is a unique platform that offers a wide range of stylish and high-quality hand-sewn/tailored dresses.</p>
+        <p>Contact: +233 54 127 948</p>
+    </div>
+  </footer>
 </body>
 </html>

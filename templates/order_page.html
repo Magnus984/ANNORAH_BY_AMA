@@ -7,49 +7,59 @@
     <link rel="stylesheet" href="../static/styles/order.css">
     <link rel="stylesheet" href="../static/styles/messages.css">
     <link rel="stylesheet" href="../static/styles/top.css">
+    <link rel="stylesheet" href="../static/styles/body.css">
+    <link rel="stylesheet" href="../static/styles/footer.css">
 </head>
 <body>
-    <div class="top">
-        <h1 class="st">ANNORAH BY AMA</h1>
-        <a href="{{ url_for('landing_page') }}" class="home">
-            <img src="../static/images/home.png" alt="Home" class="img-size">
-        </a>
-        <div class="profile-div">
-            <img src="../static/images/profile-user.png" alt="Profile" class="img-size">
-            {% if name %}
-            {{ name }}
-            {% endif %}
-        </div>
-    </div>
-    <hr>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <ul class="flashes">
-          {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-    {% if error_message %}
-        <p class="error">{{ error_message }}</p>
-    {% endif %}
-    {% if dress %}
-    <div class="main-container">
-        <div class="dress-container">
-            <img src="{{ dress.image_url }}" id="dress">
-        </div>
-            <div class="order-container">
-            <div class="no-button">
-                <p>Name: {{ dress.name  }}</p>
-                <p>Price: {{ dress.price  }}</p>
-                <p>Description: {{ dress.description  }}</p>
+    <div class="wrapper">
+        <div class="top">
+            <h1 class="st">ANNORAH BY AMA</h1>
+            <a href="{{ url_for('landing_page') }}" class="home">
+                <img src="../static/images/home.png" alt="Home" class="img-size">
+            </a>
+            <div class="profile-div">
+                <img src="../static/images/profile-user.png" alt="Profile" class="img-size">
+                {% if name %}
+                {{ name }}
+                {% endif %}
             </div>
-            <form method="POST">
-                <button>Order</button>
-            </form>
         </div>
-    {% endif %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+        {% if dress %}
+        <div class="main-container">
+            <div class="dress-container">
+                <img src="{{ dress.image_url }}" id="dress">
+            </div>
+                <div class="order-container">
+                <div class="no-button">
+                    <p>Name: {{ dress.name  }}</p>
+                    <p>Price: {{ dress.price  }}</p>
+                    <p>Description: {{ dress.description  }}</p>
+                </div>
+                <form method="POST">
+                    <button>Order</button>
+                </form>
+            </div>
+        {% endif %}
+        </div>
     </div>
+    <footer>
+        <div class="footer-content">
+            <!--<h2>About</h2>-->
+            <p>About: ANNORAH BY AMA is a unique platform that offers a wide range of stylish and high-quality hand-sewn/tailored dresses.</p>
+            <p>Contact: +233 54 127 948</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -7,52 +7,62 @@
     <link rel="stylesheet" href="../static/styles/buyer.css">
     <link rel="stylesheet" href="../static/styles/messages.css">
     <link rel="stylesheet" href="../static/styles/top.css">
+    <link rel="stylesheet" href="static/styles/body.css">
+    <link rel="stylesheet" href="static/styles/footer.css">
 </head>
 <body>
-    <div class="top">
-        <h1 class="st">ANNORAH BY AMA</h1>
-        <a href="{{ url_for('landing_page') }}" class="home">
-            <img src="../static/images/home.png" alt="Home" class="img-size">
-        </a>
-        <div class="profile-div">
-            <img src="../static/images/profile-user.png" alt="Profile" class="img-size">
-            {% if name %}
-            {{ name }}
-            {% endif %}
+    <div class="wrapper">
+        <div class="top">
+            <h1 class="st">ANNORAH BY AMA</h1>
+            <a href="{{ url_for('landing_page') }}" class="home">
+                <img src="../static/images/home.png" alt="Home" class="img-size">
+            </a>
+            <div class="profile-div">
+                <img src="../static/images/profile-user.png" alt="Profile" class="img-size">
+                {% if name %}
+                {{ name }}
+                {% endif %}
+            </div>
         </div>
-    </div>
-    <hr>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <ul class="flashes">
-          {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-    <div class="container">
-        {% for dress in dresses %}
-        <a style="text-decoration: none; color: black;" href="{{ url_for('order_page', dress_id=dress.id) }}">
-            <div class="full_container">
-                <div class="img_container">
-                    <img src="{{ dress.image_url }}">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        <div class="container">
+            {% for dress in dresses %}
+            <a style="text-decoration: none; color: black;" href="{{ url_for('order_page', dress_id=dress.id) }}">
+                <div class="full_container">
+                    <div class="img_container">
+                        <img src="{{ dress.image_url }}">
+                    </div>
+                <p class="dress_description">{{ dress.description }}</p>
+                <p class="dress_price">{{ dress.price }}</p>
                 </div>
-            <p class="dress_description">{{ dress.description }}</p>
-            <p class="dress_price">{{ dress.price }}</p>
-            </div>
-        </a>
-        {% endfor %}
-        <div class="order-container">
-            <h2>My Orders</h2>
-            {% if orders %}
-            {% for order in orders %}
-            <div class="order-item">{{ order.name }}({{ order.price }})
-                <img id="order-image" src="{{ order.image_url }}">
-            </div>
+            </a>
             {% endfor %}
-            {% endif %}
+            <div class="order-container">
+                <h2>My Orders</h2>
+                {% if orders %}
+                {% for order in orders %}
+                <div class="order-item">{{ order.name }}({{ order.price }})
+                    <img id="order-image" src="{{ order.image_url }}">
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
+    <footer>
+        <div class="footer-content">
+            <!--<h2>About</h2>-->
+            <p>About: ANNORAH BY AMA is a unique platform that offers a wide range of stylish and high-quality hand-sewn/tailored dresses.</p>
+            <p>Contact: +233 54 127 948</p>
+        </div>
+    </footer>
 </body>
 </html>
