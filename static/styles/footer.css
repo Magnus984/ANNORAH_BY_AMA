@@ -1,0 +1,22 @@
+footer {
+    /*background-color: #333;*/
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid
+    
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+
+.footer-content p {
+    margin: 0;
+}
